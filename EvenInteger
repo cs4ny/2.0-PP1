@@ -1,0 +1,15 @@
+# Even integer Check Function
+
+#Check if the integer is divided by 2/ no remainder
+def isEven(int):
+    if int % 2 == 0:
+        print("This integer is even.")
+    else:
+        print("This integer is odd.")
+
+#Check if the following intger is even (100,259,23,5689746)
+
+isEven(100)
+isEven(259)
+isEven(23)
+isEven(5689746)
