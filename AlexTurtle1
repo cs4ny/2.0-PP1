@@ -1,0 +1,72 @@
+# Turtle Draw a House
+# Example of Defining and Invoking Functions
+# Mr. V
+
+import turtle
+
+def drawSquare(aTurtle,sz):
+    """ Ask aTurtle to draw a square with sidelengths of sz.
+        aTurtle returns to the position it started."""
+    for i in range(4):
+        aTurtle.forward(sz)
+        aTurtle.left(90)
+
+
+def drawTriangle(aTurtle,sz):
+    """ Ask aTurtle to draw an equilateral triangle with sidelengths of sz.
+        aTurtle returns to the position it started."""
+    for i in range(3):
+        aTurtle.forward(sz)
+        aTurtle.right(120)
+
+def drawHouse(aTurtle,sz):
+    """ Ask aTurtle to draw a simple house with a square base and
+        a triangular roof with sidelengths of sz.
+        aTurtle returns to the position it started."""
+
+    # Invoke function drawSquare
+    drawSquare(aTurtle,sz)
+
+    # Move to position to draw triangular roof
+    aTurtle.left(90)
+    aTurtle.forward(sz)
+    aTurtle.right(30)
+
+    #Invoke function drawTriangle
+    drawTriangle(aTurtle,sz)
+
+    # Move back to starting position
+    aTurtle.left(30)
+    aTurtle.backward(sz)
+    aTurtle.right(90)
+
+
+
+# Set up the window and its attributes
+wn = turtle.Screen()
+wn.bgcolor("white")
+
+# Create alex the turtle
+alex = turtle.Turtle()
+alex.shape("turtle")
+
+# Go somewhere else and draw another house.
+def drawSomewhere (x,y,size,color):
+    """ Ask alex the turtle to change color, lift pen, go to a certain postion,
+    pen down, and invoke the drawHouse fucntion """
+    alex.pencolor(color)
+    alex.penup()
+    alex.goto(x, y)
+    alex.pendown()
+    drawHouse(alex,size)
+
+# Give alex commands to draw a house
+
+drawSomewhere(-320,120,60,"blue")
+drawSomewhere(20,145,150,"red")
+drawSomewhere(-80,60,59,"black")
+drawSomewhere(-87,90,200,"yellow")
+drawSomewhere(150,300,20,"greeen")
+
+
+wn.exitonclick()
