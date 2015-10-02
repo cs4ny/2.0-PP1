@@ -1,0 +1,99 @@
+# Draw a character example.
+
+import pygame
+import math
+
+def drawCircleMan(x,y):
+    """ Draw Circle Man with a top left corner of (x,y)"""
+    # Head
+    pygame.draw.ellipse(screen,LIGHTSALMON,[x,y,180,150]) #InsideColorofTheHead
+    pygame.draw.ellipse(screen,BLACK,[x,y,180,150],3) #BlackOutline
+    # Eyes Function (repetition of circles)
+    def Eyes (color,add_x,add_y,eye_width,eye_height):
+        pygame.draw.ellipse(screen,color,[x+add_x,y+add_y,eye_width,eye_height]) # Main color of eye
+        pygame.draw.ellipse(screen,BLACK,[x+add_x,y+add_y,eye_width,eye_height],3) # Outline
+
+    #Right Eye
+    Eyes(WHITE,60,30,50,50) #InnerEyeCircle
+    Eyes(GREEN,70,35,40,40) #SecondInnerEyeCircle
+    Eyes(BLACK,80,40,30,30) #ThirdInnerEyeCircle
+    Eyes(WHITE,85,45,20,20) #OuterEyeCircle
+    #Left Eye
+    Eyes(WHITE,20,30,50,50) #InnerEyeCircle
+    Eyes(GREEN,30,35,40,40) #SecondInnerEyeCircle
+    Eyes(BLACK,40,40,30,30) #ThirdInnderEyeCircle
+    Eyes(WHITE,45,45,20,20) #OuterEyeCircle
+    # Mouth
+    pygame.draw.line(screen,BLACK,[x+60,y+100],[x+100,y+110],4)
+
+
+# Needed to initialize pygame
+pygame.init()
+
+# Define some Constants
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 200, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+LIGHTSALMON = (255,160,122)
+
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+# Create a screen
+size = [SCREEN_WIDTH,SCREEN_HEIGHT]
+screen = pygame.display.set_mode(size)
+
+pygame.display.set_caption("PyramidFaces")
+
+# Used to manage how fast the screen updates
+clock = pygame.time.Clock()
+FPS = 30
+
+#Loop until the user clicks the close button.
+loop = True
+
+# -------- Main Program Loop -----------
+while loop == True:
+    # EVENT PROCESSING
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            loop = False
+
+
+    # DRAW COMMANDS
+    screen.fill(WHITE)
+
+    # Draw character first layer
+    drawCircleMan(300,100)
+
+    # Draw character second layer right
+    drawCircleMan(400,200)
+
+    # Draw character second layer left
+    drawCircleMan(200,200)
+
+    # Draw character third layer right
+    drawCircleMan(500,300)
+
+    # Draw character third layer middle
+    drawCircleMan(300,300)
+
+    # Draw character third layer left
+    drawCircleMan(100,300)
+
+ 
+
+    # Update Screen
+    pygame.display.flip()
+
+    # Set frames per second
+    clock.tick(FPS)
+# -------- End of Main Program Loop --------
+
+
+# Close the window and quit.
+pygame.quit()
+
