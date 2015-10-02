@@ -1,0 +1,21 @@
+# Letter Grade Program
+
+def getLetterGrade():
+    percentage = int(input("Please enter a percentage:")) #Input of user
+
+    # If statments for different percentage
+    if percentage <= 100 and percentage >= 90:
+        print("You got an A.")
+    elif percentage <= 89 and percentage >= 75:
+        print("You got a B.")
+    elif percentage <= 74 and percentage >= 60:
+        print("You got a C.")
+    elif percentage <= 59 and percentage >= 50:
+        print("You got a D.")
+    elif percentage <= 49:
+        print("You got a F.")
+    else:
+        print("Invalid Choice.")
+
+#Invoke function
+getLetterGrade()
