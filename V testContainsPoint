@@ -1,0 +1,94 @@
+# Draw a character example.
+
+import pygame
+import math
+
+
+# DEFINE FUNCTION containsPoint HERE ...
+
+def containsPoint(xCoor,yCoor,xRect,yRect,widthRect,heightRect):
+
+    # Check if the point is inside the shape
+    if xCoor >= xRect and xCoor <= (xRect+widthRect) and yCoor >= yRect and yCoor <= (yRect+heightRect):
+
+        #Return True if it is
+        icontainsPoint = True
+    else:
+
+        #Return False it it is not
+        icontainsPoint = False
+
+    return icontainsPoint
+
+    
+
+
+# Needed to initialize pygame
+pygame.init()
+
+# Define some Constants
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+# Create a screen
+size = [SCREEN_WIDTH,SCREEN_HEIGHT]
+screen = pygame.display.set_mode(size)
+
+pygame.display.set_caption("Test Contains Point")
+
+# Used to manage how fast the screen updates
+clock = pygame.time.Clock()
+FPS = 30
+
+# Rectangle Info
+x = 200
+y = 100
+width = 300
+height = 200
+colour = BLACK
+
+#Loop until the user clicks the close button.
+loop = True
+
+# -------- Main Program Loop -----------
+while loop == True:
+    # EVENT PROCESSING
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            loop = False
+
+    # GAME LOGIC
+    # Get x & y coordinates of mouse press
+    pos = pygame.mouse.get_pos()
+    mouseX = pos[0]
+    mouseY = pos[1]
+
+    # Check if mouse pointer is within rectangle
+    if containsPoint(mouseX,mouseY,x,y,width,height):
+        colour = GREEN
+    else:
+        colour = RED
+
+
+    # DRAW COMMANDS
+    screen.fill(WHITE)
+
+    pygame.draw.rect(screen,colour,[x,y,width,height])
+
+    # Update Screen
+    pygame.display.flip()
+
+    # Set frames per second
+    clock.tick(FPS)
+# -------- End of Main Program Loop --------
+
+
+# Close the window and quit.
+pygame.quit()
+
