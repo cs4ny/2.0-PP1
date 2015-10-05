@@ -1,0 +1,116 @@
+# Rock Paper Scissors Game
+
+import random
+
+#Start main()
+def main():
+    loop = True
+    while loop == True:
+        # Display Welcome & Get User Choice
+        interface()
+        uChoice = user_choices()
+        cChoice = computer_choices()
+
+        # Compare choices and display results
+        compare(uChoice,cChoice)
+
+        # Play Again?
+        cont = input("Do you want to continue? y/n")
+        if cont == "y":
+            loop = True
+        elif cont == "n":
+            loop = False
+        else:
+            print("Please enter y(yes) or n(no)")
+    print("You wil now exit this program")
+    
+#End main()
+
+#Start interface()
+def interface():
+    print("Welcome to the Rock Paper and Scissors Game")
+    print()
+    print("1.Rock.")
+    print("2.Paper")
+    print("3.Scissors")
+    print()
+    
+#End interface()
+
+#Start user_choices()    
+def user_choices():
+    user = int(input("Please choose your choice (in number):"))
+    if user == 1:               #User chose rock
+        user_choice = 1
+    elif user == 2:             #User chose paper
+        user_choice = 2
+    elif user == 3:             #User chose scissors
+        user_choice = 3
+    else:
+        print("Invalid Choice")
+    return user_choice
+#End user_choices()
+
+#Start computer_choices()    
+def computer_choices():
+    computer = random.randint(1,3)
+    if computer == 1:           #Computer chose rock
+        computer_choice = 1
+    elif computer == 2:         #Computer chose paper
+        computer_choice = 2
+    elif computer == 3:         #Computer chose scissors
+        computer_choice = 3
+    return computer_choice
+#End computer_choices()
+
+#Start compare()
+def compare(user,comp):
+    if user == 1:
+        if comp == 1:
+            print("User chooses rock, Computer chooses rock, Draw")
+        elif comp == 2:
+            print("User chooses rock, Computer chooses paper,Computer wins")
+        elif comp == 3:
+            print("User chooses rock, Computer chooses scissors,User wins")
+        else:
+            print()
+    elif user== 2:
+        if comp == 1:
+            print("User chooses paper, Computer chooses rock, User wins")
+        elif comp == 2:
+            print("User chooses paper, Computer chooses paper,Draw")
+        elif comp == 3:
+            print("User chooses paper, Computer chooses scissors,Computer wins")
+        else:
+            print()
+    elif user== 3:
+        if comp == 1:
+            print("User chooses scissors, Computer chooses rock, Computer wins")
+        elif comp == 2:
+            print("User chooses scissors, Computer chooses paper,User wins")
+        elif comp == 3:
+            print("User chooses scissors, Computer chooses scissors,Draw")
+        else:
+            print()
+    else:
+        print("Error")
+    return
+#End compare()
+
+#Invoke main()
+main()
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
