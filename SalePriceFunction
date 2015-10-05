@@ -1,0 +1,11 @@
+# Sale Price Function
+
+def getSalePrice(price,percentdis):
+    offprice = price - (percentdis/100 * price) #Price with the percentage discount
+    finGstprice = offprice + (offprice/100 * 5) #Price with the GST added
+    return finGstprice
+
+#Invoke function and print out the results
+print(getSalePrice(19.99,20))
+print(getSalePrice(200,10))
+    
