@@ -1,0 +1,15 @@
+# Converts inches to feet
+# Import Mr.Veldkamp integer checking library
+import validInputLibV1 as vi
+
+#inchToFeet Function
+def inchToFeet( inches ):
+    feet = inches / 12  
+    return feet
+
+# Ask user for the inches
+userInches = vi.intInputRange("Please enter an integer input for the number of inches you want to convert.")
+feet_answer = inchToFeet(userInches)
+
+#print out results
+print(userInches,"inches is",feet_answer,"in feet.")
