@@ -1,0 +1,35 @@
+# Test Divisibility Example
+# Example of how to define a function with parameters/arguments and
+# return values.
+# Mr. V
+
+def isDivisible(num, div):
+    """ Checks to see if num is divisible by div.  Return True or False."""
+    if num % div == 0:  # Is remainder 0
+        return True
+    else:
+        return False
+
+
+# Main Program Loop
+loop = True
+while loop == True:
+    # Ask user for a number and divisor to check
+    print()
+    print("Welcome to the Divisiblity Checker!")
+    number = int(input("Please enter a number: "))
+    divisor = int(input("Please enter a divisor: "))
+    print()
+
+    # Use isDivisible function to check for divisibility
+    if isDivisible(number,divisor):
+        print(str(number) + " is divisible by " + str(divisor))
+    else:
+        print(str(number) + " is NOT divisible by " + str(divisor))
+
+    # Check if user would like to do another test
+    again = input("Would you like to do another test (y/n)? ")
+    if again == "n":
+        loop = False
+
+print("Goodbye.  Thank you for using this program.")
