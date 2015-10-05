@@ -1,0 +1,41 @@
+# Turtle Library
+
+import turtle
+
+#drawSquare(aTurtle,sz,colour)
+def drawSquare(aTurtle,sz,colour):
+    aTurtle.pencolor(colour)
+    for i in range(4):
+        aTurtle.forward(sz)
+        aTurtle.left(90)
+
+#drawTriangle(aTurtle,sz,colour)
+def drawTriangle(aTurtle,sz,colour):
+    aTurtle.pencolor(colour)
+    for i in range(3):
+        aTurtle.forward(sz)
+        aTurtle.right(30)
+
+#drawHouse(aTurtle,sz,colour)
+def drawHouse(aTurtle,sz,color):
+    aTurtle.pencolor(colour)
+
+    drawSquare(aTurtle,sz,colour)
+
+    aTurtle.left(90)
+    aTurtle.forward(sz)
+    aTurtle.right(30)
+
+    drawTriangle(aTurtle,sz,colour)
+
+    aTurtle.left(30)
+    aTurtle.backward(sz)
+    aTurtle.right(90)
+
+#drawPolygon
+#drawHexagon(aTurtle,sz,colour)
+def drawHexagon(aTurtle,sz,colour):
+    aTurtle.pencolor(colour)
+    for i in range(6):
+        aTurtle.forward(sz)
+        aTurtle.right(10)
