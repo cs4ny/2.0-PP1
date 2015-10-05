@@ -1,0 +1,52 @@
+# Temperature Conversion Example
+# Example of how to define a function with parameters/arguments and
+# return values.
+# Mr. V
+
+def fahrToCels(fahrTemp):
+    """ Converts fahrTemp to a Celsius temperature and returns the result
+        rounded to the nearest unit."""
+    celsTemp = (fahrTemp - 32) * 5 / 9
+    celsTemp = round(celsTemp)
+
+    return celsTemp
+
+def celsToFahr(celsiusTemp):
+    """ Converts celsTemp or Temperature in Celcius to Fahrenheit and returns
+        the result rounded to the nearest unit."""
+    fahrenheitTemp = ((9 * celsiusTemp) / 5) +32
+    fahrenheitTemp = round (fahrenheitTemp)
+
+    return fahrenheitTemp
+    
+
+
+# Main Program Loop
+loop = True
+while loop == True:
+    # Main Menu & Selection
+    print()
+    print("WELCOME TO THE TEMPERATURE CONVERTER!")
+    print("1: Fahrenheit to Celsius.")
+    print("2: Celsius to Fahrenheit.")
+    print("3: Exit.")
+    print()
+
+    selection = input("Please enter a selection from the menu: ")
+
+    # Take action based on menu selection
+    if selection == "1":
+        fahrenheit = int(input("Please enter a temperature in Fahrenheit: "))
+        celsius = fahrToCels(fahrenheit)
+        print(fahrenheit, "degrees Fahrenheit is", celsius, "degrees Celsius.")
+    elif selection == "2":
+        celsiusTemp = int(input("Please enter a temperature in Celsius:"))
+        fahrenheit_answer = celsToFahr(celsiusTemp)
+        print(celsiusTemp, "degrees Celsius is", fahrenheit_answer, "degrees Fahrenheit.")
+    elif selection == "3":
+        loop = False
+    else:
+        print("Invalid Selection.")
+
+
+print("Goodbye.  Thank you for using this program.")
