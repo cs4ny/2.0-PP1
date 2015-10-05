@@ -1,0 +1,74 @@
+# Valid Input Library
+
+# intInput() <test to see if the input is an integer> <can also enter the range>
+# floatInput() <test to see if the input is a float> <can also enter the range>
+# stringInput() <test to see if the input is a string>
+
+def intInputRange(message):
+    while True:
+        try:
+            check_Min = int(input("Please enter a minimum value.")) #Check if the minimum value is an integer
+            check_Max = int(input("Please enter a maximum value.")) #Check if the maximum value is an integer
+            check_Value =int(input(message))                        #Check if the input is an integer
+        except:
+            print("You have not enter an integer")                  #If the input is not an integer, reject
+        else:
+            if check_Min > check_Max:
+                print("The minimum cannot be bigger than the maximum")  #Contradictory Check 
+            elif check_Value < check_Min or check_Value > check_Max:    #Check again to see if the input is > than the minimum value and < than the maximum value
+                print("Please Enter a Number that is  bigger than", check_Min, " and smaller than ", check_Max)
+            else:
+                return(check_Value) #Return the value if the input passes through 2 check
+#End intInputRange() function
+
+
+def intInput(message):   
+    while True:
+        temp = input(message)
+        try:
+            return int(temp)                        #Check if the input is an integer and return
+        except:
+            print("You have not enter an integer")  #If the input is not an integer, reject
+#End intInput() function
+
+
+def floatInput(message):
+   while True:
+        temp = input(message)
+        try:
+            return float(temp)                      # Valid input so end the loop and return.
+        except:
+            print("You have not enter a float.")                
+# End floatInput() function
+
+
+def floatInputRange(message):
+    while True:
+        try:
+            check_Min = float(input("Please enter a minimum value."))   #Check if the minimum value is a float
+            check_Max = float(input("Please enter a maximum value."))   #Check if the maximum value is a float
+            check_Value =float(input(message))                          #Check if the input is a float
+        except:
+            print("You have not enter a float")                         #If the input is not a float, reject
+        else:
+            if check_Min > check_Max:
+                print("The minimum cannot be bigger than the maximum")  #Contradictory Check 
+            elif check_Value < check_Min or check_Value > check_Max:    #Check again to see if the input is > than the minimum value and < than the maximum value
+                print("Please Enter a Number that is  bigger than", check_Min, " and smaller than ", check_Max)
+            else:
+                return(check_Value)                                     #Return the value if the input passes through 2 check
+#End floatInputRange() function
+
+
+def strInput(message):
+    while True:
+        temp = input(message)
+        try:
+            return str(temp)                                            # Valid input so end the loop and return.
+        except:
+            print("You have not enter a string.")
+#EndstrInput function
+
+
+
+
