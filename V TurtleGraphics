@@ -1,0 +1,20 @@
+#Turtle Graphics using Made Turtle Library
+
+import turtle
+import TurtleLibrary as TL
+
+#Set up window
+wn = turtle.Screen()
+wn.bgcolor("white")
+
+#Create a Turtle
+mark = turtle.Turtle()
+mark.shape("turtle")
+mark.penup()
+mark.goto(-100,100)
+mark.pendown()
+
+#Draw Something
+TL.drawSquare(mark,100,"red")
+
+wn.exitonclick()
